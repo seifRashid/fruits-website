@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // if using React Router
-import {navLinks} from "../Constants.js";
+import { navLinks } from "../Constants.js";
 import { FiSearch, FiMenu } from "react-icons/fi";
 
 const Navbar = () => {
@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between bg-[#022d28] text-white py-4">
       <div className="text-xl font-bold text-[#efe1b0]">Logo</div>
-      <ul className="flex space-x-4">
+      <ul className="space-x-4 hidden sm:flex">
         {navLinks.map((link, index) => (
           <li key={index}>
             <a
@@ -34,10 +34,14 @@ const Navbar = () => {
 
         {/* Hamburger (mobile) */}
         <button
-          className="md:hidden text-2xl text-[#efe1b0] hover:text-[#b19d57] focus:outline-none"
+          className="md:hidden text-2xl text-[#efe1b0] cursor-pointer hover:text-[#b19d57] focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <FiMenu />
+          {isOpen ? (
+            <span className="text-[#efe1b0] cursor-pointer">✕</span>
+          ) : (
+            <FiMenu className="text-[#efe1b0]" />
+          )}
         </button>
       </div>
       {/* </div> */}
@@ -49,7 +53,7 @@ const Navbar = () => {
             <li key={index}>
               <a
                 to={link.path}
-                className="block py-2 border-b border-gray-200 text-gray-700"
+                className="block py-2 border-b border-gray-200 text-[#efe1b0] hover:text-[#b19d57] cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

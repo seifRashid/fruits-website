@@ -1,5 +1,5 @@
-import React, { useRef }  from "react";
-import {cardData} from "../Constants.js";
+import React, { useRef } from "react";
+import { cardData } from "../Constants.js";
 import ProductCard from "./ProductCard";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
@@ -10,76 +10,109 @@ gsap.registerPlugin(SplitText);
 function Hero() {
   const textRef = useRef();
   const heroRef = useRef();
+  const ctaRef = useRef();
+  const chungwaRef = useRef();
 
-  useGSAP(() => {
-    const split = new SplitText(textRef.current, { type: "chars" });
-    const chars = split.chars;
+  useGSAP(
+    () => {
+      const split = new SplitText(textRef.current, { type: "chars" });
+      const chars = split.chars;
 
-    gsap.from(chars, {
-      duration: 1.2,
-      opacity: 0,
-      y: 100,
-      rotationX: 720,
-      scale: 0.5,
-      ease: "power4.out",
-      stagger: { each: 0.15, from: "center" }
+      gsap.from(chars, {
+        duration: 1.2,
+        opacity: 0,
+        y: 100,
+        rotationX: 720,
+        scale: 0.5,
+        ease: "power4.out",
+        stagger: { each: 0.15, from: "center" },
+      });
 
-    });
+      gsap.from(heroRef.current, {
+        opacity: 0,
+        y: 1000,
+        duration: 2,
+        ease: "elastic",
+      });
 
-    gsap.from(heroRef, {
-      opacity:0,
-      y:-1000,
-      duration:2
-    })
+      gsap.from(ctaRef.current, {
+        opacity: 0,
+        y: 1000,
+        duration: 1.6,
+        ease: "elastic",
+      });
 
-    return () => split.revert(); // Cleanup
-  }, { scope: textRef });
+      gsap.from(chungwaRef.current, {
+        opacity: 0,
+        y: 1000,
+        duration: 1.6,
+        ease: "elastic",
+      });
+
+      return () => split.revert(); // Cleanup
+    },
+    { scope: textRef }
+  );
 
   return (
     <>
-      <div className="flex pt-12">
-        <div className="flex flex-col w-4/7">
+      <div className="flex flex-col lg:flex-row pt-12 px-4 lg:px-16">
+        {/* Text Section */}
+        <div className="w-full lg:w-4/7 flex flex-col mb-10 lg:mb-0">
           <div className="flex flex-col items-start justify-start">
-            <h1 ref={textRef} className="font-bold text-8xl text-[#b2bd34]">
+            <h1
+              ref={textRef}
+              className="font-bold text-4xl sm:text-6xl text-[#b2bd34] leading-tight"
+            >
               Fruit That Loves Your Back
             </h1>
-            <p ref={heroRef} className="text-[#efe1b0] text-2xl mt-4">
+            <p
+              ref={heroRef}
+              className="text-[#efe1b0] text-base sm:text-lg md:text-xl lg:text-2xl mt-4"
+            >
               A constellation consists of visible stars that form a perceived
               outline or pattern, usually representing an animal.
             </p>
-            <button className="mt-4 cursor-pointer border border-[#efe1b0] text-[#efe1b0] py-2 px-16 rounded-full hover:bg-[#efe1b0] hover:text-[#022d28] transition-colors duration-300">
+            <button
+              ref={ctaRef}
+              className="mt-6 cursor-pointer border border-[#efe1b0] text-[#efe1b0] py-2 px-8 sm:px-12 md:px-16 rounded-full hover:bg-[#efe1b0] hover:text-[#022d28] transition-colors duration-300 text-sm sm:text-base"
+            >
               Order Now
             </button>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-              {cardData.map(product => (
+
+            {/* Product Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-full">
+              {cardData.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           </div>
         </div>
-        <div className="flex w-3/7 relative">
+
+        {/* Image Section */}
+        <div className="relative hidden ml-16 sm:block w-full lg:w-3/7 h-[400px] sm:h-[500px] md:h-[600px]">
           <img
             src="/images/gliter-1.png"
             alt="orange"
-            className="absolute inset-0 z-20 h-20 object-cover"
+            className="absolute inset-0 z-20 w-12 h-12 object-cover"
           />
           <img
+            ref={chungwaRef}
             src="/images/orange slices.png"
             alt="chungwa"
-            className="absolute inset-0 z-10 ml-24 h-[500px]"
+            className="absolute inset-0 z-10 ml-12 sm:ml-20 h-[300px] sm:h-[400px] md:h-[500px]"
           />
           <img
             src="/images/behind orange.png"
             alt="fruit"
-            className="absolute inset-0 z-0 h-[360px] mt-24 ml-24 object-cover"
+            className="absolute inset-0 z-0 mt-24 ml-12 sm:ml-20 h-[200px] sm:h-[300px] md:h-[360px] object-cover"
           />
           <img
             src="/images/glitter-2.png"
             alt="glitter"
-            className="absolute inset-0 mt-98 ml-[450px] z-20 h-10 object-cover"
+            className="absolute z-20 mt-[28rem] ml-[12rem] md:ml-[24rem] w-10 h-10 object-cover"
           />
         </div>
-            
       </div>
     </>
   );

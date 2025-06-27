@@ -3,7 +3,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="bg-white cursor-pointer rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+    <div className="bg-[#efe1b0] cursor-pointer rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
       <img
         src={product.image}
         alt={product.name}
