@@ -5,7 +5,7 @@ import Hero from '../components/Hero'
 function Homepage() {
   return (
     <>
-    <div className="flex flex-col bg-[#022d28] min-h-screen px-8 sm:px-24 pt-8">
+    <div className="flex flex-col bg-[#022d28] min-h-screen px-4 sm:px-24 pt-8">
         <Navbar/>
         <Hero/>
     </div>
