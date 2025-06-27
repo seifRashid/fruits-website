@@ -11,6 +11,8 @@ function Hero() {
   const textRef = useRef();
   const heroRef = useRef();
   const ctaRef = useRef();
+  const glitter1Ref = useRef();
+  const glitter2Ref = useRef();
   const chungwaRef = useRef();
 
   useGSAP(
@@ -48,6 +50,25 @@ function Hero() {
         duration: 1.6,
         ease: "elastic",
       });
+
+      gsap.to(glitter1Ref.current, {
+      opacity: 0.3,
+      x: -10,
+      scale: 0.8,
+      duration: 0.8,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut", // You can also try "sine.inOut", "expo.inOut", etc.
+    });
+
+    gsap.to(glitter2Ref.current, {
+      opacity: 0.3,
+      y: -20,
+      duration: 0.8,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut", // You can also try "sine.inOut", "expo.inOut", etc.
+    });
 
       return () => split.revert(); // Cleanup
     },
@@ -92,6 +113,7 @@ function Hero() {
         {/* Image Section */}
         <div className="relative hidden ml-16 sm:block w-full lg:w-3/7 h-[400px] sm:h-[500px] md:h-[600px]">
           <img
+            ref={glitter1Ref}
             src="/images/gliter-1.png"
             alt="orange"
             className="absolute inset-0 z-20 w-12 h-12 object-cover"
@@ -108,6 +130,7 @@ function Hero() {
             className="absolute inset-0 z-0 mt-24 ml-12 sm:ml-20 h-[200px] sm:h-[300px] md:h-[360px] object-cover"
           />
           <img
+            ref={glitter2Ref}
             src="/images/glitter-2.png"
             alt="glitter"
             className="absolute z-20 mt-[28rem] ml-[12rem] md:ml-[24rem] w-10 h-10 object-cover"
