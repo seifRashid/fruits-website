@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { GiBananaBunch, GiOrange } from "react-icons/gi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,6 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 function PopularPicks() {
   const cardRefs = useRef([]);
+  const popularPickRef = useRef();
+  const popularPickRef2 = useRef();
+
 
   const fruits = [
     {
@@ -53,21 +56,50 @@ function PopularPicks() {
             toggleActions: "play none none reverse",
             stagger: {
               amount: 0.2,
-            //   from: "start",
+              //   from: "start",
             },
           },
-        //   delay: i * 0.2,
+          //   delay: i * 0.2,
         }
       );
+    });
+
+    gsap.from(popularPickRef.current, {
+      opacity: 0,
+      x: 1000,
+      scale: 0.5,
+      duration: 4,
+      ease: "elastic",
+      scrollTrigger: {
+        trigger: popularPickRef.current,
+        start: "top 90%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(popularPickRef2.current, {
+      opacity: 0,
+      x: -1000,
+      scale: 0.5,
+      duration: 4,
+      ease: "elastic",
+      scrollTrigger: {
+        trigger: popularPickRef.current,
+        start: "top 90%",
+        toggleActions: "play none none reverse",
+      },
     });
   }, []);
 
   return (
     <section className="mt-16 mb-16 px-4">
-      <h2 className="text-4xl sm:text-5xl md:text-6xl text-center font-bold text-[#efe1b0] mb-4">
+      <h2
+        ref={popularPickRef}
+        className="text-4xl sm:text-5xl md:text-6xl text-center font-bold text-[#efe1b0] mb-4"
+      >
         Popular Picks
       </h2>
-      <p className="text-center text-[#efe1b0] text-base sm:text-lg mb-10">
+      <p ref={popularPickRef2} className="text-center text-[#efe1b0] text-base sm:text-lg mb-10">
         Discover our most loved fruits, handpicked just for you!
       </p>
 
