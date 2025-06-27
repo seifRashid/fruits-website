@@ -122,7 +122,7 @@ function Hero() {
             ref={chungwaRef}
             src="/images/orange slices.png"
             alt="chungwa"
-            className="absolute inset-0 z-10 ml-12 sm:ml-20 h-[300px] sm:h-[400px] md:h-[500px]"
+            className="absolute inset-0 z-10 ml-12 sm:ml-20 h-[300px] sm:h-[400px] md:h-[500px ]"
           />
           <img
             src="/images/behind orange.png"
