@@ -1,13 +1,15 @@
-import React from "react";
-import { GiBananaBunch, GiOrange} from "react-icons/gi";
+import React, { useEffect, useRef } from "react";
+import { GiBananaBunch, GiOrange } from "react-icons/gi";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function PopularPicks() {
+  const cardRefs = useRef([]);
+
   const fruits = [
-    // {
-    //   name: "Mango",
-    //   description: "Sweet and juicy mangoes, perfect for summer.",
-    //   icon: <GiMango className="text-5xl text-[#b2bd34]" />,
-    // },
     {
       name: "Banana",
       description: "Rich in potassium, bananas are a great snack.",
@@ -18,11 +20,6 @@ function PopularPicks() {
       description: "Rich in potassium, bananas are a great snack.",
       icon: <GiBananaBunch className="text-5xl text-yellow-500" />,
     },
-    // {
-    //   name: "Apple",
-    //   description: "Crisp and refreshing apples, a classic favorite.",
-    //   icon: <GiApple className="text-5xl text-[#b2bd34]" />,
-    // },
     {
       name: "Orange",
       description: "Zesty and fresh oranges packed with vitamin C.",
@@ -34,6 +31,36 @@ function PopularPicks() {
       icon: <GiOrange className="text-5xl text-orange-500" />,
     },
   ];
+
+  useGSAP(() => {
+    cardRefs.current.forEach((el, i) => {
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.5,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.2,
+          ease: "elastic",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+            stagger: {
+              amount: 0.2,
+            //   from: "start",
+            },
+          },
+        //   delay: i * 0.2,
+        }
+      );
+    });
+  }, []);
 
   return (
     <section className="mt-16 mb-16 px-4">
@@ -48,10 +75,13 @@ function PopularPicks() {
         {fruits.map((fruit, index) => (
           <div
             key={index}
+            ref={(el) => (cardRefs.current[index] = el)}
             className="bg-[#efe1b0] p-6 rounded-xl hover:bg-orange-300 shadow-xl flex flex-col items-center text-center transition-transform duration-300 hover:scale-105"
           >
             <div className="mb-4">{fruit.icon}</div>
-            <h3 className="text-xl font-semibold text-gray-800">{fruit.name}</h3>
+            <h3 className="text-xl font-semibold text-gray-800">
+              {fruit.name}
+            </h3>
             <p className="text-gray-600 mt-2">{fruit.description}</p>
           </div>
         ))}
