@@ -10,9 +10,9 @@ function Homepage() {
       <div className="flex flex-col bg-[#022d28] min-h-screen px-4 sm:px-24 pt-4 overflow-x-hidden">
         <Navbar />
         <Hero />
-        <PopularPicks />
+        <PopularPicks/>
       </div>
-      <HowItWorks />
+      <HowItWorks/>
     </>
   );
 }

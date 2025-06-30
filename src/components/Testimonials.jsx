@@ -1,20 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
+
 const testimonials = [
   {
     name: "Jane Doe",
-    image: "/images/testimonial1.jpg",
+    image: `https://randomuser.me/api/portraits/${Math.random() > 0.5 ? "men" : "women"}/${Math.floor(Math.random() * 100)}.jpg`,
     text: "This fruit shop is amazing! Fresh produce and fast delivery every time. Highly recommend!",
   },
   {
     name: "John Smith",
-    image: "/images/testimonial2.jpg",
+    image: `https://randomuser.me/api/portraits/${Math.random() > 0.5 ? "men" : "women"}/${Math.floor(Math.random() * 100)}.jpg`,
     text: "I love how juicy and sweet the oranges are. The website is easy to navigate too!",
   },
   {
     name: "Sarah Kim",
-    image: "/images/testimonial3.jpg",
+    image: `https://randomuser.me/api/portraits/${Math.random() > 0.5 ? "men" : "women"}/${Math.floor(Math.random() * 100)}.jpg`,
     text: "Great service, affordable prices, and the best mangoes I've ever tasted.",
   },
 ];
@@ -48,11 +49,13 @@ function TestimonialSection() {
   };
 
   const prev = () => {
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrent(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   return (
-    <section className="bg-[#022d28] rounded-4xl mt-16 py-16 px-16 overflow-hidden">
+    <section className="bg-[#022d28] rounded-4xl mt-16 py-8 px-16 overflow-hidden">
       <h2 className="text-4xl sm:text-5xl font-bold text-center text-[#b2bd34] mb-10">
         What Our Customers Say
       </h2>
