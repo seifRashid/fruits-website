@@ -55,7 +55,7 @@ function TestimonialSection() {
   };
 
   return (
-    <section className="bg-[#022d28] rounded-4xl mt-16 py-8 px-16 overflow-hidden">
+    <section className="bg-[#022d28] rounded-4xl my-16 py-8 px-16 overflow-hidden">
       <h2 className="text-4xl sm:text-5xl font-bold text-center text-[#b2bd34] mb-10">
         What Our Customers Say
       </h2>
@@ -67,7 +67,7 @@ function TestimonialSection() {
             ref={imageRef}
             src={testimonials[current].image}
             alt={testimonials[current].name}
-            className="w-40 h-40 rounded-full object-cover shadow-lg mb-4"
+            className="w-32 h-32 rounded-full object-cover shadow-lg mb-4"
           />
           <h3 className="text-xl font-semibold text-[#efe1b0]">
             {testimonials[current].name}
@@ -87,13 +87,13 @@ function TestimonialSection() {
           <div className="mt-6 flex justify-center lg:justify-start space-x-4">
             <button
               onClick={prev}
-              className="px-4 py-2 bg-[#b2bd34] text-[#efe1b0] rounded-full hover:bg-[#a1aa30] transition"
+              className="px-4 py-2 bg-[#b2bd34] text-[#022d28] rounded-full hover:bg-[#a1aa30] transition"
             >
               Previous
             </button>
             <button
               onClick={next}
-              className="px-4 py-2 bg-[#b2bd34] text-[#efe1b0] rounded-full hover:bg-[#a1aa30] transition"
+              className="px-4 py-2 bg-[#b2bd34] text-[#022d28] rounded-full hover:bg-[#a1aa30] transition"
             >
               Next
             </button>

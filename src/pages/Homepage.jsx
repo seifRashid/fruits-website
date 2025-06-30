@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import PopularPicks from "../components/PopularPicks";
 import HowItWorks from "../components/HowItWorks";
+import NewsLetter from "../components/NewsLetter";
+import Footer from "../components/Footer";
 
 function Homepage() {
   return (
@@ -13,6 +15,8 @@ function Homepage() {
         <PopularPicks/>
       </div>
       <HowItWorks/>
+      <NewsLetter/>
+      <Footer/>
     </>
   );
 }

@@ -50,7 +50,7 @@ function PopularPicks() {
           y: 0,
           scale: 1,
           duration: 0.2,
-          ease: "elastic",
+          ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: el,
             start: "top 90%",
@@ -95,17 +95,17 @@ function PopularPicks() {
       },
     });
 
-    gsap.from(pinSectionRef.current, {
-      scrollTrigger: {
-        trigger: pinSectionRef.current,
-        start: "top top",
-        zindex: 0,
-        end: "+=1000",
-        toggleActions: "play none none reverse",
-        pin: true,
-        // pinSpacing: true,
-      },
-    });
+    // gsap.from(pinSectionRef.current, {
+    //   scrollTrigger: {
+    //     trigger: pinSectionRef.current,
+    //     start: "top top",
+    //     zindex: 0,
+    //     end: "+=1000",
+    //     toggleActions: "play none none reverse",
+    //     pin: true,
+    //     // pinSpacing: true,
+    //   },
+    // });
   }, []);
 
   return (
