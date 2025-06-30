@@ -52,23 +52,23 @@ function Hero() {
       });
 
       gsap.to(glitter1Ref.current, {
-      opacity: 0.3,
-      x: -10,
-      scale: 0.8,
-      duration: 0.8,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut", // You can also try "sine.inOut", "expo.inOut", etc.
-    });
+        opacity: 0.3,
+        x: -10,
+        scale: 0.8,
+        duration: 0.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut", // You can also try "sine.inOut", "expo.inOut", etc.
+      });
 
-    gsap.to(glitter2Ref.current, {
-      opacity: 0.3,
-      y: -20,
-      duration: 0.8,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut", // You can also try "sine.inOut", "expo.inOut", etc.
-    });
+      gsap.to(glitter2Ref.current, {
+        opacity: 0.3,
+        y: -20,
+        duration: 0.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut", // You can also try "sine.inOut", "expo.inOut", etc.
+      });
 
       return () => split.revert(); // Cleanup
     },
@@ -85,7 +85,7 @@ function Hero() {
               ref={textRef}
               className="font-bold text-4xl sm:text-6xl text-[#b2bd34] leading-tight"
             >
-              Fruit That Loves Your Back
+              Fruit That Loves Your Back 🍎
             </h1>
             <p
               ref={heroRef}
@@ -127,7 +127,7 @@ function Hero() {
           <img
             src="/images/behind orange.png"
             alt="fruit"
-            className="absolute inset-0 z-0 mt-24 ml-12 sm:ml-20 h-[200px] sm:h-[300px] md:h-[360px] object-cover"
+            className="absolute inset-0 z-0 mt-24 ml-12 sm:ml-20 h-[100px]  md:h-[360px] object-cover"
           />
           <img
             ref={glitter2Ref}

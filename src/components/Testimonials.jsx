@@ -1,0 +1,104 @@
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+
+const testimonials = [
+  {
+    name: "Jane Doe",
+    image: "/images/testimonial1.jpg",
+    text: "This fruit shop is amazing! Fresh produce and fast delivery every time. Highly recommend!",
+  },
+  {
+    name: "John Smith",
+    image: "/images/testimonial2.jpg",
+    text: "I love how juicy and sweet the oranges are. The website is easy to navigate too!",
+  },
+  {
+    name: "Sarah Kim",
+    image: "/images/testimonial3.jpg",
+    text: "Great service, affordable prices, and the best mangoes I've ever tasted.",
+  },
+];
+
+function TestimonialSection() {
+  const [current, setCurrent] = useState(0);
+
+  const imageRef = useRef(null);
+  const textRef = useRef(null);
+
+  const animateIn = () => {
+    gsap.fromTo(
+      imageRef.current,
+      { opacity: 0, scale: 0.85 },
+      { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
+      textRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, delay: 0.2, ease: "power2.out" }
+    );
+  };
+
+  useEffect(() => {
+    animateIn();
+  }, [current]);
+
+  const next = () => {
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prev = () => {
+    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  return (
+    <section className="bg-[#022d28] rounded-4xl mt-16 py-16 px-16 overflow-hidden">
+      <h2 className="text-4xl sm:text-5xl font-bold text-center text-[#b2bd34] mb-10">
+        What Our Customers Say
+      </h2>
+
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 max-w-5xl mx-auto">
+        {/* Image & Name */}
+        <div className="flex flex-col items-center text-center">
+          <img
+            ref={imageRef}
+            src={testimonials[current].image}
+            alt={testimonials[current].name}
+            className="w-40 h-40 rounded-full object-cover shadow-lg mb-4"
+          />
+          <h3 className="text-xl font-semibold text-[#efe1b0]">
+            {testimonials[current].name}
+          </h3>
+        </div>
+
+        {/* Testimony Text */}
+        <div className="max-w-xl text-center lg:text-left relative">
+          <p
+            ref={textRef}
+            className="text-lg italic text-[#efe1b0] transition-all duration-500"
+          >
+            “{testimonials[current].text}”
+          </p>
+
+          {/* Navigation Buttons */}
+          <div className="mt-6 flex justify-center lg:justify-start space-x-4">
+            <button
+              onClick={prev}
+              className="px-4 py-2 bg-[#b2bd34] text-[#efe1b0] rounded-full hover:bg-[#a1aa30] transition"
+            >
+              Previous
+            </button>
+            <button
+              onClick={next}
+              className="px-4 py-2 bg-[#b2bd34] text-[#efe1b0] rounded-full hover:bg-[#a1aa30] transition"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default TestimonialSection;
