@@ -11,12 +11,12 @@ const Navbar = () => {
       <ul className="space-x-4 hidden sm:flex">
         {navLinks.map((link, index) => (
           <li key={index}>
-            <a
+            <Link
               to={link.path}
               className="text-[#efe1b0] hover:text-[#b19d57] cursor-pointer"
             >
               {link.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -51,13 +51,13 @@ const Navbar = () => {
         <ul className="md:hidden mt-2 px-4 space-y-2">
           {navLinks.map((link, index) => (
             <li key={index}>
-              <a
+              <Link
                 to={link.path}
                 className="block py-2 border-b border-gray-200 text-[#efe1b0] hover:text-[#b19d57] cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
