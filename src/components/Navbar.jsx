@@ -51,24 +51,38 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <ul className="md:hidden mt-2 px-4 space-y-2">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <Link
-                  to={link.path}
-                  className="block py-2 border-b border-gray-200 text-[#efe1b0] hover:text-[#b19d57] cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col">
+            <ul className="md:hidden mt-2 px-4 space-y-2">
+              {navLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.path}
+                    className="block py-2 border-b border-gray-200 text-[#efe1b0] hover:text-[#b19d57] cursor-pointer"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col items-center mt-4 justify-center space-y-4">
+              <button className="cursor-pointer border hover:border hover:border-[#efe1b0] hover:text-[#efe1b0] hover:bg-transparent py-2 px-4 sm:px-8 md:px-16 rounded-full bg-[#efe1b0] text-[#022d28] transition-colors duration-300 text-sm sm:text-base">
+                Login
+              </button>
+              <button className="cursor-pointer border hover:border hover:border-[#efe1b0] hover:text-[#efe1b0] hover:bg-transparent py-2 px-4 sm:px-8 md:px-16 rounded-full bg-[#efe1b0] text-[#022d28] transition-colors duration-300 text-sm sm:text-base">
+                sign up
+              </button>
+            </div>
+          </div>
         )}
       </div>
-      <div className="flex items-center justify-center space-x-4">
-        <button>Login</button>
-        <button>get started with us</button>
+      <div className="hidden sm:flex items-center justify-center space-x-4">
+        <button className="cursor-pointer border hover:border hover:border-[#efe1b0] hover:text-[#efe1b0] hover:bg-transparent py-2 px-4 rounded-full bg-[#efe1b0] text-[#022d28] transition-colors duration-300 text-sm sm:text-base">
+          Login
+        </button>
+        <button className="cursor-pointer border hover:border hover:border-[#efe1b0] hover:text-[#efe1b0] hover:bg-transparent py-2 px-4 rounded-full bg-[#efe1b0] text-[#022d28] transition-colors duration-300 text-sm sm:text-base">
+          get started
+        </button>
       </div>
     </nav>
   );
