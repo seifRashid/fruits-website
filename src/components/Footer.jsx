@@ -40,7 +40,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-2">
               <FiMapPin className="text-[#b2bd34]" />
-              <span>Nairobi, Kenya</span>
+              <span>Mombasa, Kenya</span>
             </li>
           </ul>
         </div>
