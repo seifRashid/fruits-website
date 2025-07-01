@@ -71,7 +71,7 @@ const Navbar = () => {
               </button>
               <button className="cursor-pointer border hover:border hover:border-[#efe1b0] hover:text-[#efe1b0] hover:bg-transparent py-2 px-4 sm:px-8 md:px-16 rounded-full bg-[#efe1b0] text-[#022d28] transition-colors duration-300 text-sm sm:text-base">
                 sign up
-              </button>
+              </button> 
             </div>
           </div>
         )}
