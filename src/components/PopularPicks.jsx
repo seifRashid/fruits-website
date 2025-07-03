@@ -112,7 +112,7 @@ function PopularPicks() {
     <section ref={pinSectionRef} className="mt-16 mb-16 px-4">
       <h2
         ref={popularPickRef}
-        className="text-4xl sm:text-5xl md:text-6xl text-center font-bold text-[#efe1b0] mb-4"
+        className="text-4xl sm:text-5xl md:text-6xl text-center font-bold font-hero text-[#efe1b0] mb-4"
       >
         Popular Picks
       </h2>

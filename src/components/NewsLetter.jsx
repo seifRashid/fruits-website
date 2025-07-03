@@ -6,7 +6,7 @@ function NewsLetter() {
       <div className="flex flex-col items-center justify-center space-y-6 py-32 px-4 bg-[linear-gradient(rgba(0,32,0,0.5),rgba(0,0,0,0.5)),url(/images/fruit-bg.jpg)] bg-cover bg-center text-white">
         {/* Heading & Subtext */}
         <div className="text-center max-w-2xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-myYellow mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold font-hero text-myYellow mb-4">
             Subscribe to Our Newsletter
           </h2>
           <p className="text-myWhite text-base sm:text-lg">

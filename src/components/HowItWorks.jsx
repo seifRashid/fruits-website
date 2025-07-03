@@ -9,7 +9,7 @@ function HowItWorks() {
   return (
     <>
       <section className="flex flex-col items-center w-full mx-auto bg-myWhite">
-        <h1 className="text-4xl sm:text-5xl mt-8 md:text-6xl text-center font-bold text-myGreen py-8">
+        <h1 className="text-4xl sm:text-5xl mt-8 md:text-6xl text-center font-bold font-hero text-myGreen py-8">
           How It Works
         </h1>
         <div className="flex items-center justify-center space-x-16 px-6 py-4 max-w-md mx-auto">

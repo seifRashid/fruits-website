@@ -56,7 +56,7 @@ function TestimonialSection() {
 
   return (
     <section className="bg-[#022d28] rounded-4xl my-16 py-8 px-16 overflow-hidden">
-      <h2 className="text-4xl sm:text-5xl font-bold text-center text-[#b2bd34] mb-10">
+      <h2 className="text-4xl sm:text-5xl font-bold font-hero text-center text-[#b2bd34] mb-10">
         What Our Customers Say
       </h2>
 
