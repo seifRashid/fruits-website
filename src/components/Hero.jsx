@@ -83,20 +83,20 @@ function Hero() {
           <div className="flex flex-col items-start justify-start">
             <h1
               ref={textRef}
-              className="font-bold text-4xl sm:text-6xl text-[#b2bd34] leading-tight"
+              className="font-bold font-hero text-4xl sm:text-6xl text-myYellow leading-tight"
             >
               Fruit That Loves Your Back 🍎
             </h1>
             <p
               ref={heroRef}
-              className="text-[#efe1b0] text-base sm:text-lg md:text-xl lg:text-2xl mt-4"
+              className="text-myWhite text-base sm:text-lg md:text-xl lg:text-2xl mt-4"
             >
               A constellation consists of visible stars that form a perceived
               outline or pattern, usually representing an animal.
             </p>
             <button
               ref={ctaRef}
-              className="mt-6 cursor-pointer border border-[#efe1b0] text-[#efe1b0] py-2 px-8 sm:px-12 md:px-16 rounded-full hover:bg-[#efe1b0] hover:text-[#022d28] transition-colors duration-300 text-sm sm:text-base"
+              className="mt-6 cursor-pointer border border-myWhite text-myWhite py-2 px-8 sm:px-12 md:px-16 rounded-full hover:bg-myWhite hover:text-[#022d28] transition-colors duration-300 text-sm sm:text-base"
             >
               Order Now
             </button>

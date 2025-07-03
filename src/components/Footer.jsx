@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#011e1c] text-[#efe1b0] py-12 px-4">
+    <footer className="bg-[#011e1c] text-myWhite py-12 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         
         {/* Logo & Description */}
         <div>
-          <h3 className="text-2xl font-bold text-[#b2bd34] mb-4">Fruitopia</h3>
+          <h3 className="text-2xl font-bold text-myYellow mb-4">Fr🍉itopia</h3>
           <p className="text-sm leading-relaxed">
             Your one-stop shop for fresh, organic, and juicy fruits delivered right to your doorstep.
           </p>
@@ -17,7 +17,7 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-xl font-semibold text-[#b2bd34] mb-4">Quick Links</h4>
+          <h4 className="text-xl font-semibold text-myYellow mb-4">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/" className="hover:text-white transition">Home</Link></li>
             <li><Link to="/shop" className="hover:text-white transition">Shop</Link></li>
@@ -28,18 +28,18 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div>
-          <h4 className="text-xl font-semibold text-[#b2bd34] mb-4">Contact</h4>
+          <h4 className="text-xl font-semibold text-myYellow mb-4">Contact</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center space-x-2">
-              <FiPhoneCall className="text-[#b2bd34]" />
+              <FiPhoneCall className="text-myYellow" />
               <span>+254 712 345 678</span>
             </li>
             <li className="flex items-center space-x-2">
-              <FiMail className="text-[#b2bd34]" />
+              <FiMail className="text-myYellow" />
               <span>support@fruitopia.com</span>
             </li>
             <li className="flex items-center space-x-2">
-              <FiMapPin className="text-[#b2bd34]" />
+              <FiMapPin className="text-myYellow" />
               <span>Mombasa, Kenya</span>
             </li>
           </ul>
@@ -47,11 +47,11 @@ export default function Footer() {
 
         {/* Social Media */}
         <div>
-          <h4 className="text-xl font-semibold text-[#b2bd34] mb-4">Follow Us</h4>
+          <h4 className="text-xl font-semibold text-myYellow mb-4">Follow Us</h4>
           <div className="flex space-x-4">
-            <a href="#" className="text-[#b2bd34] hover:text-white transition text-xl"><FaFacebookF /></a>
-            <a href="#" className="text-[#b2bd34] hover:text-white transition text-xl"><FaTwitter /></a>
-            <a href="#" className="text-[#b2bd34] hover:text-white transition text-xl"><FaInstagram /></a>
+            <a href="#" className="text-myYellow hover:text-white transition text-xl"><FaFacebookF /></a>
+            <a href="#" className="text-myYellow hover:text-white transition text-xl"><FaTwitter /></a>
+            <a href="#" className="text-myYellow hover:text-white transition text-xl"><FaInstagram /></a>
           </div>
         </div>
       </div>

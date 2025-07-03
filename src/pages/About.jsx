@@ -3,15 +3,15 @@ function About() {
     <>
       <div className="flex flex-col sm:flex-row pt-12 px-4 sm:px-32 bg-primary">
         {/* Text Section */}
-        <div className="flex flex-col w-4/7 space-y-16">
+        <div className="flex flex-col w-full sm:w-4/7 space-y-16">
           <div className="flex flex-col text-center sm:text-left space-y-4">
-            <h1 className="font-bold text-3xl sm:text-6xl text-[#b2bd34] leading-tight">
+            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-[#b2bd34] leading-tight">
               🥝 About Us
             </h1>
             <h1 className="font-semibold text-2xl --font-sans">
               Welcome to Fr🍉itopia – Fruit That Loves You Back!
             </h1>
-            <p>
+            <p className="test-start" >
               At Fruitopia, we believe that nature’s sweetest gifts should be
               celebrated, shared, and savored. Our mission is simple — to bring
               you fresh, premium-quality fruits that not only taste great but
@@ -19,7 +19,7 @@ function About() {
             </p>
           </div>
           <div className="flex flex-col text-center sm:text-left space-y-4">
-            <h1 className="font-bold text-3xl sm:text-6xl text-[#b2bd34] leading-tight">
+            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-[#b2bd34] leading-tight">
               🌿 Our Story
             </h1>
             <p>
@@ -72,7 +72,7 @@ function About() {
         
       </div>
       <div className="flex flex-col absolute inset-0 top-32 w-2/3 mx-auto sm:text-left space-y-4">
-          <h1 className="font-bold text-3xl text-center sm:text-6xl text-[#b2bd34] leading-tight">
+          <h1 className="font-bold font-hero text-3xl text-center sm:text-6xl text-[#b2bd34] leading-tight">
             🍓 What Makes Us Special
           </h1>
           <ul className="list-disc list-inside text-lg sm:text-xl text-white space-y-2">
