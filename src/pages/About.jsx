@@ -71,7 +71,7 @@ function About() {
         <div className="flex flex-col items-center my-24 h-128 justify-center space-y-6 py-32 px-4 bg-[linear-gradient(rgba(0,32,0,0.5),rgba(0,0,0,0.5)),url(/images/fruit-bg.jpg)] blur-[2px] bg-cover bg-center text-white">
         
       </div>
-      <div className="flex flex-col absolute inset-0 top-32 w-2/3 mx-auto sm:text-left space-y-4">
+      <div className="flex flex-col absolute inset-0 sm:top-32 top-16 w-2/3 mx-auto sm:text-left space-y-4">
           <h1 className="font-bold font-hero text-3xl text-center sm:text-6xl text-[#b2bd34] leading-tight">
             🍓 What Makes Us Special
           </h1>

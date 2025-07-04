@@ -6,7 +6,7 @@ import { FiSearch, FiMenu } from "react-icons/fi";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="flex justify-between bg-myGreen text-white py-6 px-16 sm:px-32 items-center">
+    <nav className="flex justify-between sticky top-0 w-full z-50 bg-myGreen text-white py-6 px-16 sm:px-32 items-center">
       <div className="sm:text-4xl text-2xl font-bold text-myWhite">
         Fr🍉itopia
       </div>
@@ -67,21 +67,21 @@ const Navbar = () => {
             </ul>
             <div className="flex flex-col items-center mt-4 justify-center space-y-4">
               <button className="cursor-pointer border hover:border hover:border-myWhite hover:text-myWhite hover:bg-transparent py-2 px-4 sm:px-8 md:px-16 rounded-full bg-myWhite text-myGreen transition-colors duration-300 text-sm sm:text-base">
-                Login
+                <Link to={"/login"}>Login</Link>
               </button>
               <button className="cursor-pointer border hover:border hover:border-myWhite hover:text-myWhite hover:bg-transparent py-2 px-4 sm:px-8 md:px-16 rounded-full bg-myWhite text-myGreen transition-colors duration-300 text-sm sm:text-base">
-                sign up
-              </button> 
+                <Link to={"/signup"}>get started</Link>
+              </button>
             </div>
           </div>
         )}
       </div>
       <div className="hidden sm:flex items-center justify-center space-x-4">
         <button className="cursor-pointer border hover:border hover:border-myWhite hover:text-myWhite hover:bg-transparent py-2 px-4 rounded-full bg-myWhite text-myGreen transition-colors duration-300 text-sm sm:text-base">
-          Login
+          <Link to={"/login"}>Login</Link>
         </button>
         <button className="cursor-pointer border hover:border hover:border-myWhite hover:text-myWhite hover:bg-transparent py-2 px-4 rounded-full bg-myWhite text-myGreen transition-colors duration-300 text-sm sm:text-base">
-          get started
+          <Link to={"/signup"}>get started</Link>
         </button>
       </div>
     </nav>
