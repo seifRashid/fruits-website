@@ -14,8 +14,9 @@ const Cart = () => {
 
   const total = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2);
 
+
   return (
-    <div className="absolute z-20 mr-8 w-md min-h-screen bg-green-800 rounded-lg text-white px-4 py-8">
+    <div className="absolute z-[999] will-change-transform mr-8 w-md min-h-screen bg-green-800 rounded-lg text-white px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center text-yellow-400">🛒 Your Cart</h1>
 
       {cartItems.length === 0 ? (
