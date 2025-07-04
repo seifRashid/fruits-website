@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"; // if using React Router
 import { navLinks } from "../Constants.js";
 import { FiSearch, FiMenu } from "react-icons/fi";
+import { FaShoppingBasket } from "react-icons/fa";
+import { useCart } from "../Contexts/CartContext.jsx";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {toggleCart} = useCart()
   return (
     <nav className="flex justify-between sticky top-0 w-full z-50 bg-myGreen text-white py-6 px-16 sm:px-32 items-center">
       <div className="sm:text-4xl text-2xl font-bold text-myWhite">
@@ -75,6 +78,10 @@ const Navbar = () => {
             </div>
           </div>
         )}
+      </div>
+      <div>
+        {/* shopping cart icon from react icons */}
+        <FaShoppingBasket onClick={toggleCart} className="text-white text-2xl cursor-pointer" />
       </div>
       <div className="hidden sm:flex items-center justify-center space-x-4">
         <button className="cursor-pointer border hover:border hover:border-myWhite hover:text-myWhite hover:bg-transparent py-2 px-4 rounded-full bg-myWhite text-myGreen transition-colors duration-300 text-sm sm:text-base">
