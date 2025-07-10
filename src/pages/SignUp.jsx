@@ -58,6 +58,16 @@ const SignUp = () => {
     }
   };
 
+  //confirm password logic
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const confirmPasswordError =
+    confirmPassword !== formData.password ? "Passwords do not match" : "";
+
+  //handle confirm password change
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
   //handle input field change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -87,7 +97,7 @@ const SignUp = () => {
 
     try {
       const res = await fetch(
-        "https://kenya-explorers.onrender.com/api/register",
+        "/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -135,7 +145,7 @@ const SignUp = () => {
               value={formData.fullName}
               type="text"
               placeholder="full Name"
-              className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="pl-10 py-2 rounded w-full border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
           </div>
 
@@ -145,7 +155,7 @@ const SignUp = () => {
               value={formData.email}
               type="email"
               placeholder="Email"
-              className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="pl-10 py-2 rounded w-full border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
           </div>
           <div className="relative">
@@ -154,11 +164,11 @@ const SignUp = () => {
               value={formData.phone}
               type="text"
               placeholder="Phone number"
-              className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="pl-10 py-2 rounded w-full border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
           </div>
 
-          <div className="relative">
+          <div className="relative flex items-center">
             <FaLock className="absolute left-3 top-3 text-green-800" />
             <input
               name="password"
@@ -166,7 +176,7 @@ const SignUp = () => {
               onChange={handleChange}
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="pl-10 py-2 rounded w-full border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
             <button
               type="button"
@@ -182,7 +192,7 @@ const SignUp = () => {
           {formData.password && (
             <div className="mt-1">
               <div
-                className={`h-2 rounded transition-all ${
+                className={`h-1 rounded transition-all ${
                   passwordStrength === "Strong"
                     ? "bg-green-500 w-full"
                     : passwordStrength === "Medium"
@@ -207,11 +217,16 @@ const SignUp = () => {
           <div className="relative">
             <FaLock className="absolute left-3 top-3 text-green-800" />
             <input
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
               type="password"
               placeholder="Confirm Password"
-              className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="pl-10 py-2 rounded w-full border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
           </div>
+          {confirmPasswordError && (
+            <p className="text-sm text-red-500 mt-1">{confirmPasswordError}</p>
+          )}
 
           <label className="text-sm flex items-center gap-2">
             <input type="checkbox" className="accent-lime-500" />I agree to the

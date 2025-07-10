@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaUserAlt, FaLock, FaEnvelope } from "react-icons/fa";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -14,6 +14,25 @@ const LogIn = () => {
     });
   }, []);
 
+  //form data
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+
+  //handle input field change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+  
+  //handle form submission
+  const hundleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+  };
   return (
     <div className="min-h-screen bg-myGreen flex flex-col items-center justify-center text-white px-4 py-8">
       <img
@@ -35,10 +54,9 @@ const LogIn = () => {
           </p>
         </div>
 
-        <form className="flex flex-col gap-4">
-
+        <form onSubmit={hundleSubmit} className="flex flex-col gap-4">
           <div className="relative">
-            <FaEnvelope className="absolute left-3 top-3 text-myGreen" />
+            <FaEnvelope className="absolute left-3 top-3 text-green-800" />
             <input
               type="email"
               placeholder="Email"
@@ -46,13 +64,23 @@ const LogIn = () => {
             />
           </div>
 
-          <div className="relative">
-            <FaLock className="absolute left-3 top-3 text-myGreen" />
+          <div className="relative flex items-center">
+            <FaLock className="absolute left-3 top-3 text-green-800" />
             <input
-              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="pl-10 py-2 rounded w-full border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3 text-gray-600 dark:text-gray-300"
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </button>
           </div>
 
           <label className="text-sm flex items-center gap-2">
@@ -64,14 +92,14 @@ const LogIn = () => {
             type="submit"
             className="bg-myYellow hover:bg-yellow-500 text-myGreen font-bold py-2 px-4 rounded transition duration-300"
           >
-            Sign Up 🍇
+            Log In 🍇
           </button>
         </form>
 
         <p className="text-sm text-center mt-4">
           Already have an account?{" "}
           <a href="#" className="text-lime-600 font-semibold">
-            Log in
+            sign up
           </a>
         </p>
       </div>
