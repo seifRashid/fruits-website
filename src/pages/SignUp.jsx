@@ -1,5 +1,5 @@
-import React from "react";
-import { FaUserAlt, FaLock, FaEnvelope } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaUserAlt, FaLock, FaEnvelope, FaPhone } from "react-icons/fa";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 // import './SignUp.css';
@@ -13,6 +13,99 @@ const SignUp = () => {
       ease: "bounce.out",
     });
   }, []);
+
+  //form data
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    password: "",
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [passwordStrength, setPasswordStrength] = useState("");
+  const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState("");
+
+  //evaluate password strength
+  const evaluatePasswordStrength = (password) => {
+    if (password.length < 6) return "Weak";
+    const hasLetters = /[a-zA-Z]/.test(password);
+    const hasNumbers = /\d/.test(password);
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (password.length >= 8 && hasLetters && hasNumbers && hasSpecial)
+      return "Strong";
+    if (password.length >= 8 && hasLetters && hasNumbers) return "Medium";
+    return "Weak";
+  };
+
+  //validate field
+  const validateField = (name, value) => {
+    switch (name) {
+      case "email":
+        return /^\S+@\S+\.\S+$/.test(value) ? "" : "Invalid email format";
+      case "password":
+        return value.length >= 8 && /\d/.test(value) && /[a-zA-Z]/.test(value)
+          ? ""
+          : "Password must be at least 8 characters, include a letter and a number";
+      case "phone":
+        return /^\d{10,15}$/.test(value)
+          ? ""
+          : "Phone must be 10-15 digits with no spaces";
+      default:
+        return "";
+    }
+  };
+
+  //handle input field change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "password") {
+      setPasswordStrength(evaluatePasswordStrength(value));
+    }
+
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+  };
+
+  //hundle submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+
+    const newErrors = {
+      email: validateField("email", formData.email),
+      password: validateField("password", formData.password),
+      phone: validateField("phone", formData.phone),
+    };
+
+    setErrors(newErrors);
+    if (Object.values(newErrors).some((error) => error)) return;
+
+    try {
+      const res = await fetch(
+        "https://kenya-explorers.onrender.com/api/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Something went wrong");
+
+      setMessage(data.message);
+      setFormData({ fullName: "", phone: "", email: "", password: "" });
+      setPasswordStrength("");
+    } catch (err) {
+      setMessage(err.message);
+      console.log(err.message);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-myGreen flex flex-col items-center justify-center text-white px-4 py-8">
@@ -35,12 +128,13 @@ const SignUp = () => {
           </p>
         </div>
 
-        <form className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="relative">
             <FaUserAlt className="absolute left-3 top-3 text-green-800" />
             <input
+              value={formData.fullName}
               type="text"
-              placeholder="Name"
+              placeholder="full Name"
               className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
           </div>
@@ -48,8 +142,18 @@ const SignUp = () => {
           <div className="relative">
             <FaEnvelope className="absolute left-3 top-3 text-green-800" />
             <input
+              value={formData.email}
               type="email"
               placeholder="Email"
+              className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
+            />
+          </div>
+          <div className="relative">
+            <FaPhone className="absolute left-3 top-3 text-green-800" />
+            <input
+              value={formData.phone}
+              type="text"
+              placeholder="Phone number"
               className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
           </div>
@@ -57,11 +161,48 @@ const SignUp = () => {
           <div className="relative">
             <FaLock className="absolute left-3 top-3 text-green-800" />
             <input
-              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               className="pl-10 py-2 rounded w-full border border-green-200 focus:outline-none focus:ring-2 focus:ring-green-600"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3 text-gray-600 dark:text-gray-300"
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </button>
           </div>
+          {errors.password && (
+            <p className="text-sm text-red-500 mt-1">{errors.password}</p>
+          )}
+          {formData.password && (
+            <div className="mt-1">
+              <div
+                className={`h-2 rounded transition-all ${
+                  passwordStrength === "Strong"
+                    ? "bg-green-500 w-full"
+                    : passwordStrength === "Medium"
+                    ? "bg-yellow-500 w-2/3"
+                    : "bg-red-500 w-1/3"
+                }`}
+              />
+              <p
+                className={`text-sm mt-1 ${
+                  passwordStrength === "Strong"
+                    ? "text-green-500"
+                    : passwordStrength === "Medium"
+                    ? "text-yellow-500"
+                    : "text-red-500"
+                }`}
+              >
+                {passwordStrength} Password
+              </p>
+            </div>
+          )}
 
           <div className="relative">
             <FaLock className="absolute left-3 top-3 text-green-800" />
@@ -83,6 +224,8 @@ const SignUp = () => {
           >
             Sign Up 🍇
           </button>
+          {/* Message */}
+          {message && <p className="text-sm text-yellow-300">{message}</p>}
         </form>
 
         <p className="text-sm text-center mt-4">

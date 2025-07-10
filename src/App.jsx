@@ -8,26 +8,14 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/Login";
 import Cart from "./components/Cart";
 import { useCart } from "./Contexts/CartContext";
+import CategoryPage from "./pages/CategoryPage";
 // import { useGSAP } from "@gsap/react";
 // import gsap from "gsap";
 // ... other pages
 
 function App() {
   const { cartOn } = useCart();
-  // const boxRef = useRef()
 
-  // useGSAP(() => {
-  //   if (cartOn) {
-  //     gsap.fromTo(".boxref",
-  //       { opacity: 0, y: -20 },
-  //       { opacity: 1, y: 0, duration: 0.5, ease: 'elastic' }
-  //     );
-  //   } else {
-  //     gsap.to(".boxref",
-  //       { opacity: 0, y: 20, duration: 1, ease: 'power2.in' }
-  //     );
-  //   }
-  // }, [cartOn]);
   return (
     <Router>
       <Navbar />
@@ -37,6 +25,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/catalogue" element={<CategoryPage />} />
         {/* Add more routes here */}
       </Routes>
       <Footer />

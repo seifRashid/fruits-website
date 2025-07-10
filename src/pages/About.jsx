@@ -5,7 +5,7 @@ function About() {
         {/* Text Section */}
         <div className="flex flex-col w-full sm:w-4/7 space-y-16">
           <div className="flex flex-col text-center sm:text-left space-y-4">
-            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-[#b2bd34] leading-tight">
+            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-myYellow leading-tight">
               🥝 About Us
             </h1>
             <h1 className="font-semibold text-2xl --font-sans">
