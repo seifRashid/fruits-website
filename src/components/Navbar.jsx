@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const {toggleCart} = useCart()
   return (
-    <nav className="flex justify-between sticky top-0 w-full z-50 bg-myGreen text-white py-6 px-16 sm:px-32 items-center">
+    <nav className="flex justify-between sticky top-0 w-full z-50 bg-myGreen/90 backdrop-blur-sm text-white py-6 px-16 sm:px-32 items-center">
       <div className="sm:text-4xl text-2xl font-bold text-myWhite">
         Fr🍉itopia
       </div>
