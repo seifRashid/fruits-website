@@ -1,6 +1,7 @@
 // CategoryPage.js
 import React from 'react';
 import { FaAppleAlt, FaLemon, FaSeedling } from 'react-icons/fa';
+import PopularFruits from '../components/PopularFruits';
 // import { gsap } from 'gsap';
 // import { useGSAP } from '@gsap/react';
 
@@ -59,6 +60,7 @@ const CategoryPage = () => {
           </div>
         ))}
       </div>
+      <PopularFruits/>
     </div>
   );
 };
