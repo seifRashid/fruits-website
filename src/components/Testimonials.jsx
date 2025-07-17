@@ -55,12 +55,12 @@ function TestimonialSection() {
   };
 
   return (
-    <section className="bg-[#022d28] rounded-4xl my-16 py-8 px-16 overflow-hidden">
-      <h2 className="text-4xl sm:text-5xl font-bold font-hero text-center text-[#b2bd34] mb-10">
+    <section className="bg-myGreen-800 rounded-4xl my-16 sm:mx-auto mx-8 py-8 px-16 overflow-hidden">
+      <h2 className="text-3xl sm:text-5xl font-bold font-hero text-center text-myYellow mb-10">
         What Our Customers Say
       </h2>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 max-w-5xl mx-auto">
+      <div className="flex flex-col lg:flex-row items-center justify-center sm:gap-10 gap-5 max-w-5xl mx-auto">
         {/* Image & Name */}
         <div className="flex flex-col items-center text-center">
           <img
@@ -78,7 +78,7 @@ function TestimonialSection() {
         <div className="max-w-xl text-center lg:text-left relative">
           <p
             ref={textRef}
-            className="text-lg italic text-[#efe1b0] transition-all duration-500"
+            className="sm:text-lg text-md italic text-[#efe1b0] transition-all duration-500"
           >
             “{testimonials[current].text}”
           </p>
@@ -87,13 +87,13 @@ function TestimonialSection() {
           <div className="mt-6 flex justify-center lg:justify-start space-x-4">
             <button
               onClick={prev}
-              className="px-4 py-2 bg-[#b2bd34] text-[#022d28] rounded-full hover:bg-[#a1aa30] transition"
+              className="px-4 py-2 bg-myYellow text-myGreen-800 rounded-full hover:bg-myYellow-600 transition-color transform duration-150 cursor-pointer"
             >
               Previous
             </button>
             <button
               onClick={next}
-              className="px-4 py-2 bg-[#b2bd34] text-[#022d28] rounded-full hover:bg-[#a1aa30] transition"
+              className="px-4 py-2 bg-myYellow text-myGreen-800 rounded-full hover:bg-myYellow-600 transition-color transform duration-150 cursor-pointer"
             >
               Next
             </button>

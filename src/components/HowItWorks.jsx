@@ -12,11 +12,11 @@ function HowItWorks() {
         <h1 className="text-4xl sm:text-5xl mt-8 md:text-6xl text-center font-bold font-hero text-myGreen py-8">
           How It Works
         </h1>
-        <div className="flex items-center justify-center space-x-16 px-6 py-4 max-w-md mx-auto">
+        <div className="flex items-center justify-center sm:space-x-16 space-x-4 px-6 py-4 max-w-md mx-auto">
           {/* Fruit */}
-          <div className="flex items-center space-x-16 justify-between">
+          <div className="flex items-center sm:space-x-16 justify-between">
             <div className="flex flex-col space-y-1 items-center justify-center text-center">
-              <GiOrange className="text-8xl text-orange-500" />
+              <GiOrange className="sm:text-8xl text-5xl text-orange-500" />
               <h3 className="text-lg font-bold text-gray-800">Orange</h3>
               <p className="text-sm text-gray-600">Packed with Vitamin C</p>
             </div>
@@ -24,9 +24,9 @@ function HowItWorks() {
           </div>
 
           {/* Shopping Bag */}
-          <div className="flex items-center space-x-16 justify-between">
+          <div className="flex items-center sm:space-x-16 justify-between">
             <div className="flex flex-col space-y-1 items-center justify-center text-center">
-              <FiShoppingBag className="text-8xl text-myGreen" />
+              <FiShoppingBag className="sm:text-8xl text-5xl text-myGreen" />
               <h3 className="text-lg font-bold text-gray-800">Orange</h3>
               <p className="text-sm text-gray-600">Packed with Vitamin C</p>
             </div>
@@ -35,7 +35,7 @@ function HowItWorks() {
 
           {/* Delivery Truck */}
           <div className="flex flex-col space-y-1 items-center justify-center text-center">
-            <FaTruck className="text-8xl text-yellow-500" />
+            <FaTruck className="sm:text-8xl text-5xl text-yellow-500" />
             <h3 className="text-lg font-bold text-gray-800">Orange</h3>
             <p className="text-sm text-gray-600">Packed with Vitamin C</p>
           </div>

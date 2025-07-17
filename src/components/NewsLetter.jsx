@@ -26,7 +26,7 @@ function NewsLetter() {
           />
           <button
             type="submit"
-            className="sm:mt-0 sm:ml-4 px-6 py-2 bg-myYellow text-myGreen font-semibold rounded-full hover:bg-[#a1aa30] transition-colors duration-300"
+            className="sm:mt-0 sm:ml-4 px-6 py-2 bg-myYellow text-myGreen font-semibold rounded-full hover:bg-myYellow-600 transition-colors duration-300"
           >
             Subscribe
           </button>

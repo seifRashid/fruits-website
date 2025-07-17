@@ -1,11 +1,11 @@
 function About() {
   return (
     <>
-      <div className="flex flex-col sm:flex-row pt-12 px-4 sm:px-32 bg-primary">
+      <div className="flex flex-col sm:flex-row pt-12 px-4 sm:px-32 bg-myYellow-100">
         {/* Text Section */}
         <div className="flex flex-col w-full sm:w-4/7 space-y-16">
           <div className="flex flex-col text-center sm:text-left space-y-4">
-            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-myYellow leading-tight">
+            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-myYellow-900 leading-tight">
               🥝 About Us
             </h1>
             <h1 className="font-semibold text-2xl --font-sans">
@@ -19,14 +19,14 @@ function About() {
             </p>
           </div>
           <div className="flex flex-col text-center sm:text-left space-y-4">
-            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-[#b2bd34] leading-tight">
+            <h1 className="font-bold font-hero text-3xl sm:text-6xl text-myYellow-900 leading-tight">
               🌿 Our Story
             </h1>
             <p>
               Born from a passion for healthy living and the vibrant colors of
               nature, Fruitopia started with one goal in mind:
             </p>
-            <p className="text-lg border-l-6 border-[#b2bd34] p-4">
+            <p className="text-lg border-l-6 border-myYellow-500 p-4">
               Make nutritious living joyful, delicious, and easy for everyone.
             </p>
             <p>
@@ -72,7 +72,7 @@ function About() {
         
       </div>
       <div className="flex flex-col absolute inset-0 sm:top-32 top-16 w-2/3 mx-auto sm:text-left space-y-4">
-          <h1 className="font-bold font-hero text-3xl text-center sm:text-6xl text-[#b2bd34] leading-tight">
+          <h1 className="font-bold font-hero text-3xl text-center sm:text-6xl text-myYellow-100 leading-tight">
             🍓 What Makes Us Special
           </h1>
           <ul className="list-disc list-inside text-lg sm:text-xl text-white space-y-2">

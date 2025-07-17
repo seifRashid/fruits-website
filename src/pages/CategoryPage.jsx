@@ -1,8 +1,8 @@
 // CategoryPage.js
 import React from 'react';
 import { FaAppleAlt, FaLemon, FaSeedling } from 'react-icons/fa';
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
+// import { gsap } from 'gsap';
+// import { useGSAP } from '@gsap/react';
 
 const categories = [
   {
@@ -36,15 +36,15 @@ const categories = [
 ];
 
 const CategoryPage = () => {
-  useGSAP(() => {
-    gsap.from('.category-card', {
-      y: 50,
-      opacity: 0,
-      stagger: 0.2,
-      duration: 1,
-      ease: 'power3.out',
-    });
-  }, []);
+  // useGSAP(() => {
+  //   gsap.from('.category-card', {
+  //     y: 50,
+  //     opacity: 0,
+  //     stagger: 0.2,
+  //     duration: 1,
+  //     ease: 'power3.out',
+  //   });
+  // }, []);
 
   return (
     <div className="min-h-screen bg-green-950 text-white px-4 py-16">
@@ -52,7 +52,7 @@ const CategoryPage = () => {
 
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
         {categories.map(cat => (
-          <div key={cat.id} className={`category-card ${cat.bg} text-green-900 rounded-xl p-6 shadow-xl text-center hover:scale-105 transition-transform duration-300`}>
+          <div key={cat.id} className={`category-card ${cat.bg} cursor-pointer text-green-900 rounded-xl p-6 shadow-xl text-center hover:scale-105 transition-transform hover:shadow-lg duration-300`}>
             <div className="mb-4">{cat.icon}</div>
             <h2 className="text-xl font-bold mb-2">{cat.name}</h2>
             <p className="text-sm">{cat.description}</p>

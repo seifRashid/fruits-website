@@ -77,7 +77,7 @@ function Hero() {
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row pt-12 px-4 sm:px-8 ">
+      <div className="flex flex-1 flex-col sm:flex-row pt-12 px-4 sm:px-8 ">
         {/* Text Section */}
         <div className="w-full lg:w-4/7 flex flex-col mb-10 lg:mb-0">
           <div className="flex flex-col items-start justify-start">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // if using React Router
+import { Link, useLocation } from "react-router-dom"; // if using React Router
 import { navLinks } from "../Constants.js";
 import { FiSearch, FiMenu } from "react-icons/fi";
 import { FaShoppingBasket } from "react-icons/fa";
@@ -8,18 +8,22 @@ import { useCart } from "../Contexts/CartContext.jsx";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const {toggleCart} = useCart()
+  const location = useLocation()
+  const isActive = (path) => location.pathname === path
+
+
   return (
-    <nav className="flex justify-between sticky top-0 w-full z-50 bg-myGreen/90 backdrop-blur-sm text-white py-6 px-16 sm:px-32 items-center">
+    <nav className="flex justify-between items-center sticky top-0 w-full z-50 bg-myGreen/90 backdrop-blur-sm text-white py-6 px-16 sm:px-32">
       <div className="sm:text-4xl text-2xl font-bold text-myWhite">
         Fr🍉itopia
       </div>
       <div className="flex space-x-4">
-        <ul className="space-x-4 hidden sm:flex">
+        <ul className="space-x-4 hidden sm:flex sm:items-center">
           {navLinks.map((link, index) => (
             <li key={index}>
               <Link
                 to={link.path}
-                className="text-myWhite hover:text-[#b19d57] cursor-pointer"
+                className={`${isActive(link.path)?'text-myYellow' : 'text-myWhite'} hover:text-myYellow cursor-pointer`}
               >
                 {link.name}
               </Link>
